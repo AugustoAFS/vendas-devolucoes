@@ -21,7 +21,7 @@ vendas-devolucoes/
 - **Express** - Framework web
 - **SQLite** - Banco de dados
 - **Knex.js** - Query builder e migrations
-- **AutoMapper** - Mapeamento de objetos
+- **automapper/core** - Mapeamento de objetos
 - **Jest** - Testes unitários
 - **Swagger** - Documentação API
 
@@ -76,9 +76,9 @@ O frontend estará disponível em `http://localhost:5173`
 - ✅ Importação automática de CSV ao iniciar
 - ✅ Pareamento inteligente de vendas e devoluções
 - ✅ API REST com endpoint GET /api/transactions
-- ✅ Documentação Swagger em /api-docs
+- ✅ Documentação Swagger em /api-docs && /api-docs.json
 - ✅ Testes unitários
-- ✅ Princípios SOLID implementados
+- ✅ Princípios SOLID: Single Responsibility, Dependency Inversion e Open/Closed
 - ✅ Orientação a Objetos
 
 ### Frontend
@@ -126,40 +126,7 @@ cd api-node
 # Executar todos os testes
 npm test
 
-# Executar com coverage
-npm run test:coverage
-
-# Modo watch
-npm run test:watch
 ```
-
-## 📚 Documentação
-
-- **Backend**: Acesse `http://localhost:3333/api-docs` para visualizar a documentação Swagger
-- **Arquitetura**: Veja `api-node/ANALISE_ARQUITETURAL.md` para detalhes da arquitetura
-
-## 🎯 Requisitos Atendidos
-
-### Backend ✅
-- [x] API REST funcional
-- [x] Leitura e importação de CSV
-- [x] Banco de dados SQLite
-- [x] Orientação a Objetos
-- [x] Algoritmo de pareamento de transações
-- [x] Formato JSON especificado
-
-### Frontend ✅
-- [x] React.js com Hooks
-- [x] Custom Hook para API
-- [x] Componentes reutilizáveis
-- [x] Layout responsivo
-- [x] Listagem de vendas e devoluções
-
-### Diferenciais ✅
-- [x] 3+ Princípios SOLID
-- [x] Testes unitários
-- [x] Documentação completa
-- [x] TypeScript no backend
 
 ## 👨‍💻 Desenvolvimento
 
@@ -170,4 +137,3 @@ Consulte os READMEs específicos de cada projeto:
 ## 📄 Licença
 
 ISC
-
