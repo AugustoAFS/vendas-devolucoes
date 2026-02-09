@@ -2,49 +2,28 @@ import { Refund } from '../../entities/Refund';
 
 describe('Refund Entity', () => {
     it('should create a valid Refund instance', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
+        const refund = new Refund('100', '1', true, 'INVOO1', 50.0);
 
-        expect(refund.getCdProduct()).toBe(100);
-        expect(refund.getCdCompany()).toBe(1);
-        expect(refund.getIsReversal()).toBe(true);
-        expect(refund.getInvoice()).toBe('INVOO1');
-        expect(refund.getValue()).toBe(50.0);
+        expect(refund.productCode).toBe('100');
+        expect(refund.companyCode).toBe('1');
+        expect(refund.isReversal).toBe(true);
+        expect(refund.documentNumber).toBe('INVOO1');
+        expect(refund.value).toBe(50.0);
     });
 
-    it('should update properties correctly via setters', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
+    it('should update properties correctly', () => {
+        const refund = new Refund('100', '1', true, 'INVOO1', 50.0);
 
-        refund.setCdProduct(200);
-        refund.setCdCompany(2);
-        refund.setIsReversal(false);
-        refund.setInvoice('INV002');
-        refund.setValue(100.0);
+        refund.productCode = '200';
+        refund.companyCode = '2';
+        refund.isReversal = false;
+        refund.documentNumber = 'INV002';
+        refund.value = 100.0;
 
-        expect(refund.getCdProduct()).toBe(200);
-        expect(refund.getCdCompany()).toBe(2);
-        expect(refund.getIsReversal()).toBe(false);
-        expect(refund.getInvoice()).toBe('INV002');
-        expect(refund.getValue()).toBe(100.0);
-    });
-
-    it('should throw error for invalid product code', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
-        expect(() => refund.setCdProduct(0)).toThrow('Código do produto inválido');
-    });
-
-    it('should throw error for invalid company code', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
-        expect(() => refund.setCdCompany(0)).toThrow('Código da empresa inválido');
-    });
-
-    it('should throw error for invalid invoice', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
-        // @ts-ignore
-        expect(() => refund.setInvoice('')).toThrow('Nota fiscal inválida');
-    });
-
-    it('should throw error for invalid value', () => {
-        const refund = new Refund(100, 1, true, 'INVOO1', 50.0);
-        expect(() => refund.setValue(-10)).toThrow('Valor inválido');
+        expect(refund.productCode).toBe('200');
+        expect(refund.companyCode).toBe('2');
+        expect(refund.isReversal).toBe(false);
+        expect(refund.documentNumber).toBe('INV002');
+        expect(refund.value).toBe(100.0);
     });
 });

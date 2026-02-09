@@ -5,9 +5,9 @@ export class Transaction {
     private sale: Sale;
     private refund: Refund;
 
-    constructor(sale: Sale, refund: Refund) {
-        this.sale = sale;
-        this.refund = refund;
+    constructor(sale?: Sale, refund?: Refund) {
+        this.sale = sale!;
+        this.refund = refund!;
     }
 
     getSale(): Sale {

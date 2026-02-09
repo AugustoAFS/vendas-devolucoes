@@ -3,12 +3,20 @@ import { TransactionController } from '../controllers/TransactionController';
 import { TransactionService } from '../services/TransactionService';
 import { TransactionRepository } from '../repositories/TransactionRepository';
 import { database } from '../data/connection';
+import { createMapper } from '@automapper/core';
+import { classes } from '@automapper/classes';
+import { createTransactionMappings } from '../mappers/TransactionProfile';
 
 const routes = Router();
 
-// Instanciar dependências
+const mapper = createMapper({
+    strategyInitializer: classes(),
+});
+
+createTransactionMappings(mapper);
+
 const transactionRepository = new TransactionRepository(database);
-const transactionService = new TransactionService(transactionRepository);
+const transactionService = new TransactionService(transactionRepository, mapper);
 const transactionController = new TransactionController(transactionService);
 
 /**
@@ -31,4 +39,3 @@ const transactionController = new TransactionController(transactionService);
 routes.get('/transactions', transactionController.getAllTransactions.bind(transactionController));
 
 export default routes;
-
