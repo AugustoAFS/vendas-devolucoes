@@ -22,6 +22,10 @@ export function createApp(): Application {
   });
 
   app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocs));
+  app.get('/api-docs.json', (_req, res) => {
+    res.setHeader('Content-Type', 'application/json');
+    res.json(swaggerDocs);
+  });
 
   app.get('/', (_req, res) => {
     res.redirect('/api-docs');

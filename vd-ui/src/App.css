@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--gradient-app);
+}
+
+.app-content {
+  flex: 1;
+  padding: var(--spacing-xl) var(--spacing-md);
+  background: transparent;
+}
+
+@media (max-width: 768px) {
+  .app-content {
+    padding: var(--spacing-md) var(--spacing-sm);
+  }
+}
